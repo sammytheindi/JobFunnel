@@ -179,7 +179,6 @@ class JobFilter(Logger):
 
         # Look for matches by key id only
         for key_id, incoming_job in incoming_jobs_dict.items():
-
             # The key-ids are a direct match between existing and new
             if key_id in existing_jobs_dict:
                 self.logger.debug(
@@ -319,9 +318,17 @@ class JobFilter(Logger):
         corpus = []  # type: List[str]
         if existing_jobs_dict:
             self.logger.debug("Running TFIDF on incoming vs existing data.")
+<<<<<<< HEAD
             reference_ids, reference_words, filt_existing_jobs_dict = (
                 __dict_to_ids_and_words(existing_jobs_dict, is_incoming=False)
             )
+=======
+            (
+                reference_ids,
+                reference_words,
+                filt_existing_jobs_dict,
+            ) = __dict_to_ids_and_words(existing_jobs_dict, is_incoming=False)
+>>>>>>> upstream/master
             corpus = query_words + reference_words
         else:
             self.logger.debug("Running TFIDF on incoming data only.")
@@ -356,7 +363,10 @@ class JobFilter(Logger):
         # original jobs but not multiple matching queries for our original job.
         new_duplicate_jobs_list = []  # type: List[DuplicatedJob]
         for query_similarities, query_id in zip(similarities_per_query, query_ids):
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
             # Identify the jobs in existing_jobs_dict that our query is a
             # duplicate of
             # TODO: handle if everything is highly similar!

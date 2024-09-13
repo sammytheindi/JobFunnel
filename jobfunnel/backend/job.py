@@ -211,11 +211,17 @@ class Job:
             "title": self.title,
             "company": self.company,
             "post_date": self.post_date.strftime("%Y-%m-%d"),
+<<<<<<< HEAD
             "description": (
                 (self.description[:MAX_BLOCK_LIST_DESC_CHARS] + "..")
                 if len(self.description) > MAX_BLOCK_LIST_DESC_CHARS
                 else (self.description)
             ),
+=======
+            "description": (self.description[:MAX_BLOCK_LIST_DESC_CHARS] + "..")
+            if len(self.description) > MAX_BLOCK_LIST_DESC_CHARS
+            else (self.description),
+>>>>>>> upstream/master
             "status": self.status.name,
         }
 

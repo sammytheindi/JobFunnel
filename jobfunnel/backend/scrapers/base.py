@@ -290,7 +290,6 @@ class BaseScraper(ABC, Logger):
         invalid_job = False  # type: bool
         job_init_kwargs = self.job_init_kwargs  # NOTE: faster?
         for is_get, field in self._actions_list:
-
             # Break out immediately because we have failed a filterable
             # condition with something we initialized while scraping.
             if job and self.job_filter.filterable(job):
@@ -332,7 +331,6 @@ class BaseScraper(ABC, Logger):
                     self.set(field, job, job_soup)
 
             except Exception as err:
-
                 # TODO: we should really dump the soup object to an XML file
                 # so that users encountering bugs can submit it and we can
                 # quickly fix any failing scraping.

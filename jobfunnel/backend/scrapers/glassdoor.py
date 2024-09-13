@@ -44,7 +44,10 @@ GLASSDOOR_RADIUS_MAP = {
 
 
 class BaseGlassDoorScraper(BaseScraper):
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
     def __init__(
         self, session: Session, config: "JobFunnelConfigManager", job_filter: JobFilter
     ) -> None:
@@ -113,9 +116,13 @@ class BaseGlassDoorScraper(BaseScraper):
         location_id = self.session.post(
             LOCATION_BASE_URL, headers=self.headers, data=data
         ).json()[0]["locationId"]
+<<<<<<< HEAD
 
         if method == "get":
+=======
+>>>>>>> upstream/master
 
+        if method == "get":
             # Form job search url
             search = (
                 "https://www.glassdoor.{}/Job/jobs.htm?clickSource=searchBtn"
@@ -129,7 +136,10 @@ class BaseGlassDoorScraper(BaseScraper):
             return search
 
         elif method == "post":
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
             # Form the job search url
             search = (
                 f"https://www.glassdoor.{self.config.search_config.domain}"
@@ -148,7 +158,10 @@ class BaseGlassDoorScraper(BaseScraper):
 
             return search, data
         else:
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
             raise ValueError(f"No html method {method} exists")
 
     def get_job_soups_from_search_result_listings(self) -> List[BeautifulSoup]:
